@@ -1,18 +1,18 @@
 import React from 'react';
 import './index.css';
 import App from './App';
-import state, { addMessage, subscribe, updateMessage } from './redux/state';
+import store from './redux/store';
 import { createRoot } from 'react-dom/client';
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
-export let rerenderEntireTree = (state) => {
+let rerenderEntireTree = (state) => {
     root.render(<App state={state} 
-                    addMessage={addMessage} 
-                    updateMessage={updateMessage}/>);
+                    addMessage={store.addMessage.bind(store)} 
+                    updateMessage={store.updateMessage.bind(store)}/>);
 }
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
