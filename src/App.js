@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Message from './components/Message';
+import { addMessageActionCreator, updateMessageActionCreator } from './redux/store';
 
 const  App = (props) => {
 
@@ -10,12 +11,12 @@ const  App = (props) => {
 
   let addMessage = () => {
     if (props.state.newMessage !== '') {    
-      props.dispatch({type: 'ADD_MESSAGE'});  
+      props.dispatch(addMessageActionCreator());  
     }      
   }
 
   let updateMessage = (e) => {  
-    props.dispatch({type: 'UPDATE_MESSAGE', text: e.target.value}); 
+    props.dispatch(updateMessageActionCreator(e.target.value)); 
   }
 
   return (

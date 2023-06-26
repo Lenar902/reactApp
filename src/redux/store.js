@@ -1,3 +1,6 @@
+const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
+
 let store = {
     _state: {    
         messages: [
@@ -22,7 +25,7 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD_MESSAGE') {
+        if (action.type === ADD_MESSAGE) {
             let newPost = {
                 id: this._state.messages.length + 1,
                 message: this._state.newMessage,
@@ -32,10 +35,23 @@ let store = {
             this._state.newMessage = '';
             this._callbackSubscriber(this._state);
         }
-        else if (action.type === 'UPDATE_MESSAGE') {
+        else if (action.type === UPDATE_MESSAGE) {
             this._state.newMessage = action.text;
             this._callbackSubscriber(this._state);
         }
+    }
+}
+
+export const addMessageActionCreator = () => {
+    return {
+        type: ADD_MESSAGE
+    }
+}
+
+export const updateMessageActionCreator = (text) => {
+    return {
+        type: UPDATE_MESSAGE,
+        text
     }
 }
 
