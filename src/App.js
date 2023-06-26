@@ -10,12 +10,12 @@ const  App = (props) => {
 
   let addMessage = () => {
     if (props.state.newMessage !== '') {    
-      props.addMessage();  
+      props.dispatch({type: 'ADD_MESSAGE'});  
     }      
   }
 
-  let updateMessage = (e) => {    
-    props.updateMessage(e.target.value);   
+  let updateMessage = (e) => {  
+    props.dispatch({type: 'UPDATE_MESSAGE', text: e.target.value}); 
   }
 
   return (

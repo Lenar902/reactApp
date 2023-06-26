@@ -9,8 +9,7 @@ const root = createRoot(domNode);
 
 let rerenderEntireTree = (state) => {
     root.render(<App state={state} 
-                    addMessage={store.addMessage.bind(store)} 
-                    updateMessage={store.updateMessage.bind(store)}/>);
+                    dispatch={store.dispatch.bind(store)} />);
 }
 
 rerenderEntireTree(store.getState());
