@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import Message from './components/Message';
-import { addMessageActionCreator, updateMessageActionCreator } from './redux/store';
+import { addMessageActionCreator, updateMessageActionCreator } from './redux/message-reducer';
 
 const  App = (props) => {
 
-  let messageElements = props.state.messages.map((item) => {
-    return <Message message = { item.message } id = { item.id } key = { item.id }/>
+  let messageElements = props.state.messagePage.messages.map((item) => {
+    return <Message {...item} key = { item.id }/>
   });
 
   let addMessage = () => {
-    if (props.state.newMessage !== '') {    
+    if (props.state.messagePage.newMessage !== '') {    
       props.dispatch(addMessageActionCreator());  
     }      
   }
@@ -25,7 +25,7 @@ const  App = (props) => {
         <div> 
           <textarea className = 'App-textarea' 
                     onChange = { updateMessage }
-                    value = { props.state.newMessage }
+                    value = { props.state.messagePage.newMessage }
                     placeholder = {'Введите комментарий'}/>
         </div> 
         <div>
