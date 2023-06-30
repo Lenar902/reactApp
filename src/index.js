@@ -8,7 +8,7 @@ const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
 let rerenderEntireTree = (state) => {
-    root.render(<App state={state} 
+    root.render(<App state={state} store = {store}
                     dispatch={store.dispatch.bind(store)} />);
 }
 

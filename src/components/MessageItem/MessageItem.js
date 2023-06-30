@@ -1,11 +1,11 @@
 import React from 'react';
-import s from './Message.module.css';
+import s from './MessageItem.module.css';
 
-function Message(props) {    
+function MessageItem(props) {    
     return <h3>
         <span>{ props.id })</span>
         <span className = {s.message}>{ props.message }</span>         
     </h3>
 }
 
-export default Message;
+export default MessageItem;
