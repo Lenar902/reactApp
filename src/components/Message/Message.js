@@ -8,11 +8,11 @@ function Message(props) {
     });  
     
     let addMessage = () => {        
-          props.addMessage();         
+        props.addMessage();         
       }
     
       let updateMessage = ((e) => {  
-        props.updateNewText(e.target.value); 
+        props.updateMessage(e.target.value); 
       });
 
     return (
