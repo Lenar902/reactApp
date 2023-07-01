@@ -5,7 +5,7 @@ import MessageContainer from './components/Message/MessageContainer';
 const  App = (props) => {
   return (
     <div className="App">      
-        <MessageContainer store = { props.store } />        
+        <MessageContainer/>        
     </div>
   )
 }

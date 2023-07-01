@@ -3,13 +3,15 @@ import './index.css';
 import App from './App';
 import store from './redux/redux-store';
 import { createRoot } from 'react-dom/client';
+import { Provider } from './storeContext';
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
 let rerenderEntireTree = (state) => {
-    root.render(<App state={state} store = {store}
-                    dispatch={store.dispatch.bind(store)} />);
+    root.render(<Provider store = {store}>
+                        <App />
+                </Provider>);
 }
 
 rerenderEntireTree(store.getState());
